@@ -1,6 +1,6 @@
 ﻿namespace BookingService.Domain;
 
-public class Class1
+public class Resource
 {
 
 }
