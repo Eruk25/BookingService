@@ -1,6 +1,7 @@
 ﻿namespace BookingService.Domain;
 
-public class EnumRole
+public enum EnumRole
 {
-
+    Client,
+    Admin
 }
