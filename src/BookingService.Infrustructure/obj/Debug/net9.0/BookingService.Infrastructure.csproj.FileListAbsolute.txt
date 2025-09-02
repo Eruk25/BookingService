@@ -1,0 +1,17 @@
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/bin/Debug/net9.0/BookingService.Infrastructure.deps.json
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/bin/Debug/net9.0/BookingService.Infrastructure.dll
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/bin/Debug/net9.0/BookingService.Infrastructure.pdb
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/bin/Debug/net9.0/BookingService.Application.dll
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/bin/Debug/net9.0/BookingService.Domain.dll
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/bin/Debug/net9.0/BookingService.Application.pdb
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/bin/Debug/net9.0/BookingService.Domain.pdb
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.csproj.AssemblyReference.cache
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.AssemblyInfoInputs.cache
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.AssemblyInfo.cs
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.csproj.CoreCompileInputs.cache
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingS.96C45992.Up2Date
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.dll
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/refint/BookingService.Infrastructure.dll
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.pdb
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/ref/BookingService.Infrastructure.dll

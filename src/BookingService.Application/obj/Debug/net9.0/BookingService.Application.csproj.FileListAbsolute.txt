@@ -1,0 +1,15 @@
+/home/matushd/Code/BookingService/src/BookingService.Application/bin/Debug/net9.0/BookingService.Application.deps.json
+/home/matushd/Code/BookingService/src/BookingService.Application/bin/Debug/net9.0/BookingService.Application.dll
+/home/matushd/Code/BookingService/src/BookingService.Application/bin/Debug/net9.0/BookingService.Application.pdb
+/home/matushd/Code/BookingService/src/BookingService.Application/bin/Debug/net9.0/BookingService.Domain.dll
+/home/matushd/Code/BookingService/src/BookingService.Application/bin/Debug/net9.0/BookingService.Domain.pdb
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.csproj.AssemblyReference.cache
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.AssemblyInfoInputs.cache
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.AssemblyInfo.cs
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.csproj.CoreCompileInputs.cache
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingS.9C323D69.Up2Date
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.dll
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/refint/BookingService.Application.dll
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.pdb
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/ref/BookingService.Application.dll
