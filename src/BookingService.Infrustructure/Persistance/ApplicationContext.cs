@@ -30,6 +30,22 @@ public class ApplicationContext : DbContext
             .HasMaxLength(30);
         modelBuilder.Entity<User>().HasIndex(u => u.UserName).IsUnique();
         modelBuilder.Entity<User>().HasIndex(u =>  u.Email).IsUnique();
+        
+        modelBuilder.Entity<Booking>().HasKey(b => b.Id);
+        
+        modelBuilder.Entity<Booking>()
+            .HasOne(b => b.User)
+            .WithMany()
+            .HasForeignKey(b => b.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        modelBuilder.Entity<Booking>()
+            .Property(b => b.StartTime)
+            .IsRequired();
+        
+        modelBuilder.Entity<Booking>()
+            .Property(b => b.EndTime)
+            .IsRequired();
     }
 }
     
