@@ -15,3 +15,6 @@
 /home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/refint/BookingService.Infrastructure.dll
 /home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.pdb
 /home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/ref/BookingService.Infrastructure.dll
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/bin/Debug/net9.0/BookingService.Infrastructure.runtimeconfig.json
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.sourcelink.json
+/home/matushd/Code/BookingService/src/BookingService.Infrustructure/obj/Debug/net9.0/BookingService.Infrastructure.genruntimeconfig.cache

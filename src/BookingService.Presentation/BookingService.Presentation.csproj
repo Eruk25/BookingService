@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookingService.Application\BookingService.Application.csproj" />
+    <ProjectReference Include="..\BookingService.Infrustructure\BookingService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
+

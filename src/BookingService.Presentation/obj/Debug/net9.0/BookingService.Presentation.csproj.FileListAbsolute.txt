@@ -31,3 +31,14 @@
 /home/matushd/Code/BookingService/src/BookingService.Presentation.WebApi/obj/Debug/net9.0/BookingService.Presentation.pdb
 /home/matushd/Code/BookingService/src/BookingService.Presentation.WebApi/obj/Debug/net9.0/BookingService.Presentation.genruntimeconfig.cache
 /home/matushd/Code/BookingService/src/BookingService.Presentation.WebApi/obj/Debug/net9.0/ref/BookingService.Presentation.dll
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.csproj.AssemblyReference.cache
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.GeneratedMSBuildEditorConfig.editorconfig
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.AssemblyInfoInputs.cache
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.AssemblyInfo.cs
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.csproj.CoreCompileInputs.cache
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.MvcApplicationPartsAssemblyInfo.cs
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.MvcApplicationPartsAssemblyInfo.cache
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.sourcelink.json
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.dll
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/refint/BookingService.Presentation.dll
+/home/matushd/Code/BookingService/src/BookingService.Presentation/obj/Debug/net9.0/BookingService.Presentation.pdb

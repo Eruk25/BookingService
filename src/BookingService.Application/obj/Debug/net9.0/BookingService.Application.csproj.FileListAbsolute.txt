@@ -13,3 +13,4 @@
 /home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/refint/BookingService.Application.dll
 /home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.pdb
 /home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/ref/BookingService.Application.dll
+/home/matushd/Code/BookingService/src/BookingService.Application/obj/Debug/net9.0/BookingService.Application.sourcelink.json
