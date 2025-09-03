@@ -46,6 +46,24 @@ public class ApplicationContext : DbContext
         modelBuilder.Entity<Booking>()
             .Property(b => b.EndTime)
             .IsRequired();
+        
+        modelBuilder.Entity<Resource>().HasKey(r => r.Id);
+        modelBuilder.Entity<Resource>()
+            .Property(r => r.Title)
+            .IsRequired()
+            .HasMaxLength(60);
+        modelBuilder.Entity<Resource>()
+            .Property(r => r.Description)
+            .IsRequired()
+            .HasMaxLength(500);
+        modelBuilder.Entity<Resource>()
+            .Property(r => r.PricePerHour)
+            .IsRequired()
+            .HasColumnType("decimal(18,2)");
+        modelBuilder.Entity<Resource>()
+            .Property(r => r.ImageUrl)
+            .IsRequired()
+            .HasMaxLength(255);
     }
 }
     
