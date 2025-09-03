@@ -46,6 +46,10 @@ public class ApplicationContext : DbContext
         modelBuilder.Entity<Booking>()
             .Property(b => b.EndTime)
             .IsRequired();
+
+        modelBuilder.Entity<Booking>()
+            .HasMany(r => r.Resources)
+            .WithOne();
         
         modelBuilder.Entity<Resource>().HasKey(r => r.Id);
         modelBuilder.Entity<Resource>()
