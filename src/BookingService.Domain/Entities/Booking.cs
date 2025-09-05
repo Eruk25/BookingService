@@ -1,6 +1,4 @@
-﻿using BookingService.Domain.Entities;
-
-namespace BookingService.Domain;
+﻿namespace BookingService.Domain.Entities;
 
 public class Booking
 {
