@@ -1,4 +1,4 @@
-﻿using BookingService.Domain.Enums;
+using BookingService.Domain.Enums;
 
 namespace BookingService.Domain.Entities;
 
