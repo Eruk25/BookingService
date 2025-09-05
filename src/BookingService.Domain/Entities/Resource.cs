@@ -1,4 +1,4 @@
-﻿namespace BookingService.Domain;
+﻿namespace BookingService.Domain.Entities;
 
 public class Resource
 {

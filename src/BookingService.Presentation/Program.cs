@@ -1,4 +1,5 @@
 using BookingService.Infrastructure;
+using BookingService.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
