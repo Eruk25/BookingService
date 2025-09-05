@@ -1,4 +1,5 @@
 ﻿using BookingService.Domain;
+using BookingService.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingService.Infrastructure.Persistance;
