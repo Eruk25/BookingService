@@ -1,4 +1,4 @@
-﻿namespace BookingService.Domain;
+﻿namespace BookingService.Domain.Enums;
 
 public enum EnumRole
 {

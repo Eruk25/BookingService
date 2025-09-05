@@ -1,4 +1,6 @@
-﻿namespace BookingService.Domain.Entities;
+﻿using BookingService.Domain.Enums;
+
+namespace BookingService.Domain.Entities;
 
 public class User
 {
