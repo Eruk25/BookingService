@@ -1,3 +1,4 @@
+using BookingService.Application.Mappings;
 using BookingService.Domain.Interfaces;
 using BookingService.Infrastructure;
 using BookingService.Infrastructure.Persistance;
@@ -12,6 +13,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<IResourceRepository, ResourceRepository>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddAutoMapper(typeof(BookingProfile), typeof(UserProfile), typeof(BookingProfile));
 
 var app = builder.Build();
 
