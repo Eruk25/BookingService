@@ -8,7 +8,7 @@ public class ResourceRepository : IResourceRepository
 {
     private readonly ApplicationContext _context;
 
-    ResourceRepository(ApplicationContext context)
+    public ResourceRepository(ApplicationContext context)
     {
         _context = context;
     }

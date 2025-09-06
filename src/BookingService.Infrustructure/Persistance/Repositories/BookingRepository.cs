@@ -8,7 +8,7 @@ public class BookingRepository : IBookingRepository
 {
     private readonly ApplicationContext _context;
 
-    BookingRepository(ApplicationContext context)
+    public BookingRepository(ApplicationContext context)
     {
         _context = context;
     }
