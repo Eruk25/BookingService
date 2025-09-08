@@ -25,4 +25,5 @@ public class User
         Role = role;
         RegistrationDate = DateTime.UtcNow;
     }
+    protected User() {}
 }
