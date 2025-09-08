@@ -19,4 +19,5 @@ public class Booking
         StartTime = startTime;
         EndTime = endTime;
     }
+    protected Booking() {}
 }
