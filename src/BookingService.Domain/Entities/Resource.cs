@@ -24,4 +24,5 @@ public class Resource
         PricePerHour = pricePerHour;
         ImageUrl = imageUrl;
     }
+    protected Resource() {}
 }
