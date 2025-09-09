@@ -1,0 +1,13 @@
+using BookingService.Application.DTOs;
+
+namespace BookingService.Application.Interfaces;
+
+public interface IUserService
+{
+    Task<IEnumerable<UserDto>> GetAllAsync();
+    Task<UserDto> GetByIdAsync(int id);
+    Task LoginAsync(string email, string password);
+    Task LogoutAsync();
+    Task UpdateAsync(UserDto bookingDto, string password);
+    Task DeleteAsync(int id);
+}
