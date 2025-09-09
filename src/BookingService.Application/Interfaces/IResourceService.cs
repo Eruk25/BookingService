@@ -6,7 +6,7 @@ public interface IResourceService
 {
     Task<IEnumerable<ResourceDto>> GetAllAsync();
     Task<ResourceDto> GetByIdAsync(int id);
-    Task AddAsync(ResourceDto resource);
+    Task CreateAsync(ResourceDto resource);
     Task UpdateAsync(ResourceDto resource);
     Task DeleteAsync(int id);
 }
