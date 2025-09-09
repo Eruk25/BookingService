@@ -25,6 +25,9 @@ public class ResourceService : IResourceService
     public async Task<ResourceDto> GetByIdAsync(int id)
     {
         var resource = await _resourceRepository.GetByIdAsync(id);
+        if(resource == null)
+            throw new KeyNotFoundException($"Resource with id {id} not found");
+        
         return _mapper.Map<ResourceDto>(resource);
     }
 
