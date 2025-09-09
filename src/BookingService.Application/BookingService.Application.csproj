@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Service\Booking\" />
     <Folder Include="Service\User\" />
   </ItemGroup>
 
