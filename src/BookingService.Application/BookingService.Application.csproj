@@ -11,6 +11,7 @@
   <ItemGroup>
     <Folder Include="Service\Booking\" />
     <Folder Include="Service\Resource\" />
+    <Folder Include="Service\User\" />
   </ItemGroup>
 
   <PropertyGroup>
