@@ -37,6 +37,7 @@ public class ResourceService : IResourceService
             throw new ArgumentNullException(nameof(resource));
         var resourceEntity = _mapper.Map<Domain.Entities.Resource>(resource);
         await _resourceRepository.CreateAsync(resourceEntity);
+        return _mapper.Map<ResourceDto>(resourceEntity);
     }
 
     public async Task<bool> UpdateAsync(ResourceDto resource)
@@ -44,11 +45,11 @@ public class ResourceService : IResourceService
         if(resource is null)
             throw new ArgumentNullException(nameof(resource));
         var resourceEntity = _mapper.Map<Domain.Entities.Resource>(resource);
-        await _resourceRepository.UpdateAsync(resourceEntity);
+        return await _resourceRepository.UpdateAsync(resourceEntity);
     }
 
     public async Task<bool> DeleteAsync(int id)
     {
-        await _resourceRepository.DeleteAsync(id);
+        return await _resourceRepository.DeleteAsync(id);
     }
 }
