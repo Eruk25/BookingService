@@ -29,7 +29,7 @@ public class ResourceRepository : IResourceRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(Resource resource)
+    public async Task<bool> UpdateAsync(Resource resource)
     {
         var entity = await _context.Resources.FindAsync(resource.Id);
         entity.Title = resource.Title;
@@ -40,7 +40,7 @@ public class ResourceRepository : IResourceRepository
         await _context.SaveChangesAsync();
     }
 
-    public Task DeleteAsync(int id)
+    public Task<bool> DeleteAsync(int id)
     {
         var entity = _context.Resources.Find(id);
         _context.Resources.Remove(entity);
