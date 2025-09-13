@@ -12,9 +12,9 @@ public class BookingProfile : Profile
             .ForMember(dto => dto.BookingNumber,
                 opt =>
                     opt.MapFrom(booking => booking.Id))
-            .ForMember(dto => dto.Resources,
+            .ForMember(dto => dto.Resource,
                 opt =>
-                    opt.MapFrom(booking => booking.Resources))
+                    opt.MapFrom(booking => booking.Resource))
             .ForMember(dto => dto.StartDate, 
                 opt =>
                     opt.MapFrom(booking => booking.StartTime))
