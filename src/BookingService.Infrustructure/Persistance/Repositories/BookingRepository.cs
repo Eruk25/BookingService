@@ -35,21 +35,25 @@ public class BookingRepository : IBookingRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(Booking booking)
+    public async Task<bool> UpdateAsync(Booking booking)
     {
         var entity = await _context.Bookings.FindAsync(booking.Id);
+        if(entity == null) return false;
         entity.UserId = booking.UserId;
         entity.ResourceId = booking.ResourceId;
         entity.StartTime = booking.StartTime;
         entity.EndTime = booking.EndTime;
         
         await _context.SaveChangesAsync();
+        return true;
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
         var booking = await _context.Bookings.FindAsync(id);
+        if(booking == null) return false;
         _context.Bookings.Remove(booking);
         await _context.SaveChangesAsync();
+        return true;
     }
 }
