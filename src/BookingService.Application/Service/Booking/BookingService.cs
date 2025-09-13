@@ -30,24 +30,26 @@ public class BookingService : IBookingService
         return _mapper.Map<BookingDto>(booking);
     }
 
-    public async Task CreateAsync(BookingDto bookingDto)
+    public async Task<BookingDto> CreateAsync(BookingDto bookingDto)
     {
         if(bookingDto is null)
             throw new ArgumentNullException(nameof(bookingDto));
         var booking = _mapper.Map<Domain.Entities.Booking>(bookingDto);
         await _bookingRepository.CreateAsync(booking);
+        return _mapper.Map<BookingDto>(booking);
     }
 
-    public async Task UpdateAsync(BookingDto bookingDto)
+    public async Task<bool> UpdateAsync(BookingDto bookingDto)
     {
-        if(bookingDto is null)
+        if (bookingDto is null)
             throw new ArgumentNullException(nameof(bookingDto));
         var booking = _mapper.Map<Domain.Entities.Booking>(bookingDto);
         await _bookingRepository.UpdateAsync(booking);
+        return true;
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
-        await _bookingRepository.DeleteAsync(id);
+        return await _bookingRepository.DeleteAsync(id);
     }
 }
