@@ -31,7 +31,7 @@ public class ResourceService : IResourceService
         return _mapper.Map<ResourceDto>(resource);
     }
 
-    public async Task CreateAsync(ResourceDto resource)
+    public async Task<ResourceDto> CreateAsync(ResourceDto resource)
     {
         if(resource is null) 
             throw new ArgumentNullException(nameof(resource));
@@ -39,7 +39,7 @@ public class ResourceService : IResourceService
         await _resourceRepository.CreateAsync(resourceEntity);
     }
 
-    public async Task UpdateAsync(ResourceDto resource)
+    public async Task<bool> UpdateAsync(ResourceDto resource)
     {
         if(resource is null)
             throw new ArgumentNullException(nameof(resource));
@@ -47,7 +47,7 @@ public class ResourceService : IResourceService
         await _resourceRepository.UpdateAsync(resourceEntity);
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
         await _resourceRepository.DeleteAsync(id);
     }
