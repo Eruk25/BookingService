@@ -7,6 +7,6 @@ public interface IBookingRepository
     Task<IEnumerable<Booking>> GetAllAsync();
     Task<Booking?> GetByIdAsync(int id);
     Task CreateAsync(Booking booking);
-    Task UpdateAsync(Booking booking);
-    Task DeleteAsync(int id);
+    Task<bool> UpdateAsync(Booking booking);
+    Task<bool> DeleteAsync(int id);
 }
