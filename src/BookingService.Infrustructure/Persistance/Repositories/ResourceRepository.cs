@@ -32,18 +32,22 @@ public class ResourceRepository : IResourceRepository
     public async Task<bool> UpdateAsync(Resource resource)
     {
         var entity = await _context.Resources.FindAsync(resource.Id);
+        if(entity == null) return false;
         entity.Title = resource.Title;
         entity.Description = resource.Description;
         entity.PricePerHour = resource.PricePerHour;
         entity.ImageUrl = resource.ImageUrl;
         
         await _context.SaveChangesAsync();
+        return true;
     }
 
-    public Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
-        var entity = _context.Resources.Find(id);
+        var entity = await _context.Resources.FindAsync(id);
+        if(entity == null) return false;
         _context.Resources.Remove(entity);
-        return _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
+        return true;
     }
 }
