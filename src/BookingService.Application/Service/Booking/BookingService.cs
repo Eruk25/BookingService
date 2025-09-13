@@ -44,8 +44,7 @@ public class BookingService : IBookingService
         if (bookingDto is null)
             throw new ArgumentNullException(nameof(bookingDto));
         var booking = _mapper.Map<Domain.Entities.Booking>(bookingDto);
-        await _bookingRepository.UpdateAsync(booking);
-        return true;
+        return await _bookingRepository.UpdateAsync(booking);
     }
 
     public async Task<bool> DeleteAsync(int id)
