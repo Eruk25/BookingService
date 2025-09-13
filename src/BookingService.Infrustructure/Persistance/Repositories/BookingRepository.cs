@@ -17,7 +17,7 @@ public class BookingRepository : IBookingRepository
     {
         return await _context.Bookings
             .Include(u => u.User)
-            .Include(r => r.Resources)
+            .Include(r => r.Resource)
             .ToListAsync();
     }
 
@@ -25,7 +25,7 @@ public class BookingRepository : IBookingRepository
     {
         return await _context.Bookings
             .Include(u => u.User)
-            .Include(r => r.Resources)
+            .Include(r => r.Resource)
             .FirstOrDefaultAsync(b => b.Id == id);
     }
 
@@ -39,7 +39,7 @@ public class BookingRepository : IBookingRepository
     {
         var entity = await _context.Bookings.FindAsync(booking.Id);
         entity.UserId = booking.UserId;
-        entity.Resources = booking.Resources;
+        entity.ResourceId = booking.ResourceId;
         entity.StartTime = booking.StartTime;
         entity.EndTime = booking.EndTime;
         
