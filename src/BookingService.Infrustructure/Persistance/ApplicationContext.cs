@@ -49,7 +49,7 @@ public class ApplicationContext : DbContext
             .IsRequired();
 
         modelBuilder.Entity<Booking>()
-            .HasMany(r => r.Resources)
+            .HasOne(r => r.Resource)
             .WithOne();
         
         modelBuilder.Entity<Resource>().HasKey(r => r.Id);
