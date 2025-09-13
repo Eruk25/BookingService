@@ -50,7 +50,9 @@ public class ApplicationContext : DbContext
 
         modelBuilder.Entity<Booking>()
             .HasOne(r => r.Resource)
-            .WithOne();
+            .WithOne()
+            .HasForeignKey<Booking>(r => r.ResourceId)
+            .OnDelete(DeleteBehavior.Cascade);
         
         modelBuilder.Entity<Resource>().HasKey(r => r.Id);
         modelBuilder.Entity<Resource>()
