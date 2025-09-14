@@ -1,9 +1,13 @@
+using BookingService.Application.Interfaces;
 using BookingService.Application.Mappings;
+using BookingService.Application.Service.Resource;
+using BookingService.Application.Service.User;
 using BookingService.Domain.Interfaces;
 using BookingService.Infrastructure;
 using BookingService.Infrastructure.Persistance;
 using BookingService.Infrastructure.Persistance.Repositories;
 using Microsoft.EntityFrameworkCore;
+using IResourceService = System.ComponentModel.Design.IResourceService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +18,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<IResourceRepository, ResourceRepository>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<BookingService.Application.Interfaces.IResourceService, ResourceService>();
+builder.Services.AddScoped<IBookingService, BookingService.Application.Service.Booking.BookingService>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddAutoMapper(typeof(BookingProfile), typeof(UserProfile), typeof(BookingProfile));
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
