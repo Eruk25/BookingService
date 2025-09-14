@@ -5,12 +5,12 @@ using BookingService.Domain.Interfaces;
 
 namespace BookingService.Application.Service.Resource;
 
-public class ResourceService : IResourceService
+public class ResourcesService : IResourceService
 {
     private readonly IResourceRepository _resourceRepository;
     private readonly IMapper _mapper;
 
-    public ResourceService(IResourceRepository resourceRepository, IMapper mapper)
+    public ResourcesService(IResourceRepository resourceRepository, IMapper mapper)
     {
         _resourceRepository = resourceRepository;
         _mapper = mapper;

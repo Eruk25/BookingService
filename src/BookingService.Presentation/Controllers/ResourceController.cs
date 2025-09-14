@@ -6,11 +6,11 @@ namespace BookingService.Presentation.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ResourceController: ControllerBase
+public class ResourcesController: ControllerBase
 {
     private readonly IResourceService _resourceService;
 
-    public ResourceController(IResourceService resourceService)
+    public ResourcesController(IResourceService resourceService)
     {
         _resourceService = resourceService;
     }
