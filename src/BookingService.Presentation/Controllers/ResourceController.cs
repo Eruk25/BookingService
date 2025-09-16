@@ -22,7 +22,7 @@ public class ResourcesController: ControllerBase
         return Ok(resources);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}", Name = "GetByIdAsync")]
     public async Task<ActionResult<ResourceDto>> GetByIdAsync(int id)
     {
         var resource = await _resourceService.GetByIdAsync(id);
@@ -32,8 +32,8 @@ public class ResourcesController: ControllerBase
     [HttpPost]
     public async Task<ActionResult<ResourceDto>> CreateAsync(ResourceDto resource)
     {
-        var createdResource = await _resourceService.CreateAsync(resource);
-        return CreatedAtAction(nameof(GetByIdAsync), createdResource);
+        var creatId = await _resourceService.CreateAsync(resource);
+        return CreatedAtRoute("GetByIdAsync", new  { id = creatId }, creatId);
     }
 
     [HttpPut("{id}")]
