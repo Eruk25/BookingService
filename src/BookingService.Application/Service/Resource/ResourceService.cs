@@ -31,13 +31,13 @@ public class ResourceService : IResourceService
         return _mapper.Map<ResourceDto>(resource);
     }
 
-    public async Task<ResourceDto> CreateAsync(ResourceDto resource)
+    public async Task<int> CreateAsync(ResourceDto resource)
     {
         if(resource is null) 
             throw new ArgumentNullException(nameof(resource));
         var resourceEntity = _mapper.Map<Domain.Entities.Resource>(resource);
         await _resourceRepository.CreateAsync(resourceEntity);
-        return _mapper.Map<ResourceDto>(resourceEntity);
+        return resourceEntity.Id;
     }
 
     public async Task<bool> UpdateAsync(ResourceDto resource)
