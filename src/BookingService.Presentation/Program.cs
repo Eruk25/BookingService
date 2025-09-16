@@ -21,7 +21,12 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<BookingService.Application.Interfaces.IResourceService, ResourceService>();
 builder.Services.AddScoped<IBookingService, BookingService.Application.Service.Booking.BookingService>();
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddAutoMapper(typeof(BookingProfile), typeof(UserProfile), typeof(ResourceProfile));
+builder.Services.AddAutoMapper(cfg =>
+{
+    cfg.AddProfile<BookingProfile>();
+    cfg.AddProfile<ResourceProfile>();
+    cfg.AddProfile<UserProfile>();
+});
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
