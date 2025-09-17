@@ -14,14 +14,7 @@ public class BookingsController : ControllerBase
         _bookingService = bookingService;
     }
 
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<BookingDto>>> GetAllAsync()
-    {
-        var bookings = await _bookingService.GetAllAsync();
-        return Ok(bookings);
-    }
-
-    [HttpGet("{id}")]
+    [HttpGet("user/{id}",  Name = "GetByIdAsync")]
     public async Task<ActionResult<BookingDto>> GetByIdAsync(int id)
     {
         var booking = await _bookingService.GetByIdAsync(id);

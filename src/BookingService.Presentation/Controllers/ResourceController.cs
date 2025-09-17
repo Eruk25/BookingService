@@ -20,7 +20,7 @@ public class ResourcesController: ControllerBase
     {
         var resources = await _resourceService.GetAllAsync();
         return Ok(resources);
-    }
+    }   
 
     [HttpGet("{id}", Name = "GetByIdAsync")]
     public async Task<ActionResult<ResourceDto>> GetByIdAsync(int id)
