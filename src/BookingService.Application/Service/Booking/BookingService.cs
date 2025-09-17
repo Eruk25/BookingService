@@ -30,13 +30,13 @@ public class BookingService : IBookingService
         return _mapper.Map<BookingDto>(booking);
     }
 
-    public async Task<BookingDto> CreateAsync(BookingDto bookingDto)
+    public async Task<int> CreateAsync(BookingDto bookingDto)
     {
         if(bookingDto is null)
             throw new ArgumentNullException(nameof(bookingDto));
         var booking = _mapper.Map<Domain.Entities.Booking>(bookingDto);
         await _bookingRepository.CreateAsync(booking);
-        return _mapper.Map<BookingDto>(booking);
+        return booking.Id;
     }
 
     public async Task<bool> UpdateAsync(BookingDto bookingDto)
