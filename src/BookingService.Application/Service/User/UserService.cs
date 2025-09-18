@@ -27,6 +27,11 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
+    public Task RegisterAsync(RegisterUserDto userDto)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task LoginAsync(string email, string password)
     {
         throw new NotImplementedException();
