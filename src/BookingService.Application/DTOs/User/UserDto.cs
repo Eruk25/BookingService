@@ -1,4 +1,4 @@
-namespace BookingService.Application.DTOs;
+namespace BookingService.Application.DTOs.User;
 
 public class UserDto
 {

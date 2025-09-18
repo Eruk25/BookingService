@@ -1,4 +1,5 @@
 using BookingService.Application.DTOs;
+using BookingService.Application.DTOs.User;
 
 namespace BookingService.Application.Interfaces;
 
