@@ -8,7 +8,7 @@ public interface IUserService
 {
     Task<IEnumerable<UserDto>> GetAllAsync();
     Task<UserDto> GetByIdAsync(int id);
-    Task RegisterAsync(RegisterUserDto userDto);
+    Task<bool> RegisterAsync(RegisterUserDto userDto);
     Task LoginAsync(string email, string password);
     Task LogoutAsync();
     Task UpdateAsync(UserDto bookingDto, string password);
