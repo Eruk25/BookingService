@@ -11,7 +11,7 @@ public class User
     public EnumRole Role { get; set; }
     public DateTime RegistrationDate { get; set; }
 
-    public User(string userName, string email, string password, EnumRole role)
+    public User(string userName, string email, string password)
     {
         if(string.IsNullOrWhiteSpace(userName))
             throw new ArgumentException("User name cannot be null or empty", nameof(userName));
@@ -22,7 +22,7 @@ public class User
         UserName = userName;
         Email = email;
         Password = password;
-        Role = role;
+        Role = EnumRole.Client;
         RegistrationDate = DateTime.UtcNow;
     }
     protected User() {}
