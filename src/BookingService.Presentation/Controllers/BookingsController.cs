@@ -14,7 +14,7 @@ public class BookingsController : ControllerBase
         _bookingService = bookingService;
     }
 
-    [HttpGet("user/{id}",  Name = "GetByIdAsync")]
+    [HttpGet("user/{userId}",  Name = "GetByUserIdAsync")]
     public async Task<ActionResult<BookingDto>> GetByIdAsync(int id)
     {
         var booking = await _bookingService.GetByIdAsync(id);
@@ -24,8 +24,8 @@ public class BookingsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<BookingDto>> CreateAsync(BookingDto booking)
     {
-        var createdBooking = await _bookingService.CreateAsync(booking);
-        return CreatedAtAction(nameof(GetByIdAsync), createdBooking.BookingNumber);
+        var createdId = await _bookingService.CreateAsync(booking);
+        return CreatedAtRoute("GetByUserIdAsync", new { id = createdId}, createdId);
     }
 
     [HttpPut("{id}")]
