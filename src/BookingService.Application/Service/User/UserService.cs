@@ -27,9 +27,18 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public Task RegisterAsync(RegisterUserDto userDto)
+    public async Task<bool> RegisterAsync(RegisterUserDto userDto)
     {
-        throw new NotImplementedException();
+        if(userDto is null)
+            throw new ArgumentNullException(nameof(userDto));
+        var createdUser = new Domain.Entities.User()
+        {
+            UserName = userDto.UserName,
+            Email = userDto.Email,
+            Password = userDto.Password,
+        };
+        
+        return await _userRepository.CreateAsync(createdUser);
     }
 
     public Task LoginAsync(string email, string password)
