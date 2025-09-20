@@ -1,4 +1,5 @@
 using BookingService.Application.Interfaces;
+using BookingService.Application.Interfaces.PasswordHasher;
 using BookingService.Application.Mappings;
 using BookingService.Application.Service.Resource;
 using BookingService.Application.Service.User;
@@ -6,6 +7,7 @@ using BookingService.Domain.Interfaces;
 using BookingService.Infrastructure;
 using BookingService.Infrastructure.Persistance;
 using BookingService.Infrastructure.Persistance.Repositories;
+using BookingService.Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 using IResourceService = System.ComponentModel.Design.IResourceService;
 
@@ -21,6 +23,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<BookingService.Application.Interfaces.IResourceService, ResourceService>();
 builder.Services.AddScoped<IBookingService, BookingService.Application.Service.Booking.BookingService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPassworHasher, PasswordHasher>();
 builder.Services.AddAutoMapper(cfg =>
 {
     cfg.AddProfile<BookingProfile>();
