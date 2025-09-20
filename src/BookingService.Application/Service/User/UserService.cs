@@ -2,6 +2,7 @@ using AutoMapper;
 using BookingService.Application.DTOs;
 using BookingService.Application.DTOs.User;
 using BookingService.Application.Interfaces;
+using BookingService.Application.Interfaces.PasswordHasher;
 using BookingService.Domain.Interfaces;
 
 namespace BookingService.Application.Service.User;
@@ -10,11 +11,13 @@ public class UserService : IUserService
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
-
-    public UserService(IUserRepository userRepository, IMapper mapper)
+    private readonly IPassworHasher  _passworHasher;
+    public UserService(IUserRepository userRepository, IMapper mapper,
+        IPassworHasher passworHasher)
     {
         _userRepository = userRepository;
         _mapper = mapper;
+        _passworHasher = passworHasher;
     }
     
     public Task<IEnumerable<UserDto>> GetAllAsync()
@@ -35,7 +38,7 @@ public class UserService : IUserService
         {
             UserName = userDto.UserName,
             Email = userDto.Email,
-            Password = userDto.Password,
+            Password = _passworHasher.HashPassword(userDto.Password),
         };
         
         return await _userRepository.CreateAsync(createdUser);
