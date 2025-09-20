@@ -25,5 +25,5 @@ public class User
         Role = EnumRole.Client;
         RegistrationDate = DateTime.UtcNow;
     }
-    protected User() {}
+    public User() {}
 }
