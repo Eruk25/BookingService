@@ -44,9 +44,13 @@ public class UserService : IUserService
         return await _userRepository.CreateAsync(createdUser);
     }
 
-    public Task LoginAsync(string email, string password)
+    public async Task<string> LoginAsync(string email, string password)
     {
-        throw new NotImplementedException();
+        var user = await _userRepository.GetByEmailAsync(email);
+        if(user == null)
+            throw new ArgumentNullException(nameof(user));
+        _passworHasher.VerifyHashedPassword(password, user.Password);
+        return null;
     }
 
     public Task LogoutAsync()
