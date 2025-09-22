@@ -2,6 +2,7 @@ using AutoMapper;
 using BookingService.Application.DTOs;
 using BookingService.Application.DTOs.User;
 using BookingService.Application.Interfaces;
+using BookingService.Application.Interfaces.JWT;
 using BookingService.Application.Interfaces.PasswordHasher;
 using BookingService.Domain.Interfaces;
 
@@ -12,12 +13,14 @@ public class UserService : IUserService
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
     private readonly IPassworHasher  _passworHasher;
+    private readonly IJwtService _jwtService;
     public UserService(IUserRepository userRepository, IMapper mapper,
-        IPassworHasher passworHasher)
+        IPassworHasher passworHasher, IJwtService jwtService)
     {
         _userRepository = userRepository;
         _mapper = mapper;
         _passworHasher = passworHasher;
+        _jwtService = jwtService;
     }
     
     public Task<IEnumerable<UserDto>> GetAllAsync()
@@ -49,8 +52,15 @@ public class UserService : IUserService
         var user = await _userRepository.GetByEmailAsync(email);
         if(user == null)
             throw new ArgumentNullException(nameof(user));
-        _passworHasher.VerifyHashedPassword(password, user.Password);
-        return null;
+        var success = _passworHasher.VerifyHashedPassword(password, user.Password);
+        if (!success)
+        {
+            throw new Exception("Invalid password or Email");
+        }
+        else
+        {
+            return _jwtService.GenerateJwtToken(user);
+        }
     }
 
     public Task LogoutAsync()
