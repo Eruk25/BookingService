@@ -77,8 +77,11 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        var user = await _userRepository.GetByIdAsync(id);
+        if(user == null)
+            throw new KeyNotFoundException($"User with id {id} not found");
+        await _userRepository.DeleteAsync(id);
     }
 }
