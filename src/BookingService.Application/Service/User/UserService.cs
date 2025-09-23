@@ -23,14 +23,18 @@ public class UserService : IUserService
         _tokenGenerator = tokenGenerator;
     }
     
-    public Task<IEnumerable<UserDto>> GetAllAsync()
+    public async Task<IEnumerable<UserDto>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var users =  await _userRepository.GetAllAsync();
+        return _mapper.Map<IEnumerable<UserDto>>(users);
     }
 
-    public Task<UserDto> GetByIdAsync(int id)
+    public async Task<UserDto> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var user =  await _userRepository.GetByIdAsync(id);
+        if (user == null)
+            throw new KeyNotFoundException($"User with id {id} not found");
+        return _mapper.Map<UserDto>(user);
     }
 
     public async Task<bool> RegisterAsync(RegisterUserDto userDto)
