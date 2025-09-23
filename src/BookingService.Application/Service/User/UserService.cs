@@ -66,15 +66,23 @@ public class UserService : IUserService
             return _tokenGenerator.GenerateToken(user);
         }
     }
-
-    public Task LogoutAsync()
+    
+    public async Task UpdateAsync(UserDto userDto, string password)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateAsync(UserDto bookingDto, string password)
-    {
-        throw new NotImplementedException();
+        var user = await _userRepository.GetByEmailAsync(userDto.Email);
+        if(user == null)
+            throw new KeyNotFoundException($"User with email {userDto.Email} not found");
+        var success =  _passworHasher.VerifyHashedPassword(password, user.Password);
+        if (!success)
+        {
+            throw new Exception("Invalid password");
+        }
+        else
+        {
+            user.UserName = userDto.UserName;
+            user.Email = userDto.Email;
+            user.Password = _passworHasher.HashPassword(password);
+        }
     }
 
     public async Task DeleteAsync(int id)
