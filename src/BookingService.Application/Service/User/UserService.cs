@@ -13,14 +13,14 @@ public class UserService : IUserService
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
     private readonly IPassworHasher  _passworHasher;
-    private readonly IJwtService _jwtService;
+    private readonly ITokenGenerator _tokenGenerator;
     public UserService(IUserRepository userRepository, IMapper mapper,
-        IPassworHasher passworHasher, IJwtService jwtService)
+        IPassworHasher passworHasher, ITokenGenerator tokenGenerator)
     {
         _userRepository = userRepository;
         _mapper = mapper;
         _passworHasher = passworHasher;
-        _jwtService = jwtService;
+        _tokenGenerator = tokenGenerator;
     }
     
     public Task<IEnumerable<UserDto>> GetAllAsync()
@@ -59,7 +59,7 @@ public class UserService : IUserService
         }
         else
         {
-            return _jwtService.GenerateJwtToken(user);
+            return _tokenGenerator.GenerateToken(user);
         }
     }
 
