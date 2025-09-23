@@ -1,4 +1,4 @@
-namespace BookingService.Application.Service.JWT;
+namespace BookingService.Infrastructure.JWT;
 
 public class AuthSettings
 {

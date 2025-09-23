@@ -5,13 +5,13 @@ using BookingService.Application.Interfaces.JWT;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace BookingService.Application.Service.JWT;
+namespace BookingService.Infrastructure.JWT;
 
-public class JwtService : IJwtService
+public class JwtGenerator: IJwtService
 {
     private readonly IOptions<AuthSettings> _authSettings;
 
-    public JwtService(IOptions<AuthSettings> authSettings)
+    public JwtGenerator(IOptions<AuthSettings> authSettings)
     {
         _authSettings = authSettings;
     }
