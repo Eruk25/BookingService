@@ -26,7 +26,7 @@ builder.Services.AddScoped<BookingService.Application.Interfaces.IResourceServic
 builder.Services.AddScoped<IBookingService, BookingService.Application.Service.Booking.BookingService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPassworHasher, PasswordHasher>();
-builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<ITokenGenerator, JwtGenerator>();
 builder.Services.Configure<AuthSettings>(
     builder.Configuration.GetSection("AuthSettings"));  
 builder.Services.AddAutoMapper(cfg =>
