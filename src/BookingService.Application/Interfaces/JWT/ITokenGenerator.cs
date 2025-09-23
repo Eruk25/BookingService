@@ -2,7 +2,7 @@ using BookingService.Domain.Entities;
 
 namespace BookingService.Application.Interfaces.JWT;
 
-public interface IJwtService
+public interface ITokenGenerator
 {
-    string GenerateJwtToken(User user);
+    string GenerateToken(User user);
 }
