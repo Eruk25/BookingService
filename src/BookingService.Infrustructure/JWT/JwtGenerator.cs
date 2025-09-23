@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BookingService.Infrastructure.JWT;
 
-public class JwtGenerator: IJwtService
+public class JwtGenerator: ITokenGenerator
 {
     private readonly IOptions<AuthSettings> _authSettings;
 
@@ -16,7 +16,7 @@ public class JwtGenerator: IJwtService
         _authSettings = authSettings;
     }
 
-    public string GenerateJwtToken(Domain.Entities.User user)
+    public string GenerateToken(Domain.Entities.User user)
     {
         var claims = new List<Claim>()
         {
