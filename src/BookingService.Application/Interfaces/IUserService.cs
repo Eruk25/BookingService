@@ -10,7 +10,6 @@ public interface IUserService
     Task<UserDto> GetByIdAsync(int id);
     Task<bool> RegisterAsync(RegisterUserDto userDto);
     Task<string> LoginAsync(string email, string password);
-    Task LogoutAsync();
-    Task UpdateAsync(UserDto bookingDto, string password);
+    Task UpdateAsync(UserDto userDto, string password);
     Task DeleteAsync(int id);
 }
