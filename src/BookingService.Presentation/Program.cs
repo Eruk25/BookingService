@@ -6,6 +6,7 @@ using BookingService.Application.Service.Resource;
 using BookingService.Application.Service.User;
 using BookingService.Domain.Interfaces;
 using BookingService.Infrastructure;
+using BookingService.Infrastructure.Extensions;
 using BookingService.Infrastructure.JWT;
 using BookingService.Infrastructure.Persistance;
 using BookingService.Infrastructure.Persistance.Repositories;
@@ -33,9 +34,10 @@ builder.Services.AddAutoMapper(cfg =>
 {
     cfg.AddProfile<BookingProfile>();
     cfg.AddProfile<ResourceProfile>();
-    cfg.AddProfile<UserProfile>();
+    cfg.AddProfile<UserProfile>(); 
 });
 builder.Services.AddSwaggerGen();
+builder.Services.AddJwtAuthentication(builder.Configuration);
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
