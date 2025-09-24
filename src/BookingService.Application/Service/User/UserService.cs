@@ -45,7 +45,7 @@ public class UserService : IUserService
         {
             UserName = userDto.UserName,
             Email = userDto.Email,
-            Password = _passworHasher.HashPassword(userDto.Password),
+            Password = _passwordHasher.HashPassword(userDto.Password),
         };
         
         return await _userRepository.CreateAsync(createdUser);
@@ -56,7 +56,7 @@ public class UserService : IUserService
         var user = await _userRepository.GetByEmailAsync(email);
         if(user == null)
             throw new ArgumentNullException(nameof(user));
-        var success = _passworHasher.VerifyHashedPassword(password, user.Password);
+        var success = _passwordHasher.VerifyHashedPassword(password, user.Password);
         if (!success)
         {
             throw new Exception("Invalid password or Email");
@@ -72,7 +72,7 @@ public class UserService : IUserService
         var user = await _userRepository.GetByEmailAsync(userDto.Email);
         if(user == null)
             throw new KeyNotFoundException($"User with email {userDto.Email} not found");
-        var success =  _passworHasher.VerifyHashedPassword(password, user.Password);
+        var success =  _passwordHasher.VerifyHashedPassword(password, user.Password);
         if (!success)
         {
             throw new Exception("Invalid password");
@@ -81,7 +81,7 @@ public class UserService : IUserService
         {
             user.UserName = userDto.UserName;
             user.Email = userDto.Email;
-            user.Password = _passworHasher.HashPassword(password);
+            user.Password = _passwordHasher.HashPassword(password);
         }
     }
 
