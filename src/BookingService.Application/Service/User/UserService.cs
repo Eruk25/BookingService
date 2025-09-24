@@ -12,14 +12,14 @@ public class UserService : IUserService
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
-    private readonly IPassworHasher  _passworHasher;
+    private readonly IPassworHasher  _passwordHasher;
     private readonly ITokenGenerator _tokenGenerator;
     public UserService(IUserRepository userRepository, IMapper mapper,
-        IPassworHasher passworHasher, ITokenGenerator tokenGenerator)
+        IPassworHasher passwordHasher, ITokenGenerator tokenGenerator)
     {
         _userRepository = userRepository;
         _mapper = mapper;
-        _passworHasher = passworHasher;
+        _passwordHasher = passwordHasher;
         _tokenGenerator = tokenGenerator;
     }
     
