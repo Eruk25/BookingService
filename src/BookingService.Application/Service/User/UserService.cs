@@ -51,12 +51,12 @@ public class UserService : IUserService
         return await _userRepository.CreateAsync(createdUser);
     }
 
-    public async Task<string> LoginAsync(string email, string password)
+    public async Task<string> LoginAsync(LoginUserDto userDto)
     {
-        var user = await _userRepository.GetByEmailAsync(email);
+        var user = await _userRepository.GetByEmailAsync(userDto.Email);
         if(user == null)
             throw new ArgumentNullException(nameof(user));
-        var success = _passwordHasher.VerifyHashedPassword(password, user.Password);
+        var success = _passwordHasher.VerifyHashedPassword(userDto.Password, user.Password);
         if (!success)
         {
             throw new Exception("Invalid password or Email");
