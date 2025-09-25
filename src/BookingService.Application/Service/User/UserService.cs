@@ -46,6 +46,7 @@ public class UserService : IUserService
             UserName = userDto.UserName,
             Email = userDto.Email,
             Password = _passwordHasher.HashPassword(userDto.Password),
+            RegistrationDate = DateTime.UtcNow
         };
         
         return await _userRepository.CreateAsync(createdUser);
