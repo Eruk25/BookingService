@@ -4,14 +4,15 @@ namespace BookingService.Domain.Entities;
 
 public class User
 {
-    public int Id { get; set; }
-    public string UserName { get; set; }
-    public string Email { get; set; }
-    public string Password { get; set; }
-    public EnumRole Role { get; set; }
-    public DateTime RegistrationDate { get; set; }
+    public int Id { get; init; }
+    public string UserName { get; init; }
+    public string Email { get; init; }
+    public string Password { get; init; }
+    public EnumRole Role { get; init; }
+    public DateTime RegistrationDate { get; init; }
+    public User() {}
 
-    public User(string userName, string email, string password)
+    public static User Create(string userName, string email, string password)
     {
         if(string.IsNullOrWhiteSpace(userName))
             throw new ArgumentException("User name cannot be null or empty", nameof(userName));
@@ -19,11 +20,14 @@ public class User
             throw new ArgumentException("Email cannot be null or empty", nameof(email));
         if(string.IsNullOrWhiteSpace(password))
             throw new ArgumentException("Password cannot be null or empty", nameof(password));
-        UserName = userName;
-        Email = email;
-        Password = password;
-        Role = EnumRole.Client;
-        RegistrationDate = DateTime.UtcNow;
+
+        return new User
+        {
+            UserName = userName,
+            Email = email,
+            Password = password,
+            Role = EnumRole.Client,
+            RegistrationDate = DateTime.Now,
+        };
     }
-    public User() {}
 }
