@@ -28,7 +28,7 @@ public class ApplicationContext : DbContext
         modelBuilder.Entity<User>()
             .Property(u => u.Password)
             .IsRequired()
-            .HasMaxLength(30);
+            .HasMaxLength(500);
         modelBuilder.Entity<User>().HasIndex(u => u.UserName).IsUnique();
         modelBuilder.Entity<User>().HasIndex(u =>  u.Email).IsUnique();
         
