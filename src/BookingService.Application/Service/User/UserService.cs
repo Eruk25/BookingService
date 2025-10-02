@@ -80,9 +80,8 @@ public class UserService : IUserService
         }
         else
         {
-            user.UserName = userDto.UserName;
-            user.Email = userDto.Email;
-            user.Password = _passwordHasher.HashPassword(password);
+            Domain.Entities.User.Create(userDto.UserName, user.Email,
+                _passwordHasher.HashPassword(password));
         }
     }
 
