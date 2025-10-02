@@ -41,13 +41,8 @@ public class UserService : IUserService
     {
         if(userDto is null)
             throw new ArgumentNullException(nameof(userDto));
-        var createdUser = new Domain.Entities.User()
-        {
-            UserName = userDto.UserName,
-            Email = userDto.Email,
-            Password = _passwordHasher.HashPassword(userDto.Password),
-            RegistrationDate = DateTime.UtcNow
-        };
+        var createdUser = Domain.Entities.User.Create(userDto.UserName, userDto.Email,
+            _passwordHasher.HashPassword(userDto.Password));
         
         return await _userRepository.CreateAsync(createdUser);
     }
