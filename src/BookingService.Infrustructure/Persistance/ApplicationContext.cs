@@ -64,13 +64,21 @@ public class ApplicationContext : DbContext
             .IsRequired()
             .HasMaxLength(500);
         modelBuilder.Entity<Resource>()
-            .Property(r => r.PricePerHour)
+            .Property(r => r.Address)
+            .IsRequired()
+            .HasMaxLength(100);
+        modelBuilder.Entity<Resource>()
+            .Property(r => r.PricePerMonth)
             .IsRequired()
             .HasColumnType("decimal(18,2)");
         modelBuilder.Entity<Resource>()
             .Property(r => r.ImageUrl)
             .IsRequired()
             .HasMaxLength(255);
+        modelBuilder.Entity<Resource>()
+            .Property(r => r.SourceId)
+            .IsRequired()
+            .HasMaxLength(100);
     }
 }
     
