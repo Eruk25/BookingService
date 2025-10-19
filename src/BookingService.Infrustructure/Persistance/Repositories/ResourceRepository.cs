@@ -29,6 +29,14 @@ public class ResourceRepository : IResourceRepository
         await _context.SaveChangesAsync();
     }
 
+    public async Task ImportDataAsync(IEnumerable<Resource> resources)
+    {
+        if(resources == null)
+            throw new ArgumentNullException(nameof(resources));
+        await _context.Resources.AddRangeAsync(resources);
+        await _context.SaveChangesAsync();
+    }
+
     public async Task<bool> UpdateAsync(Resource resource)
     {
         var entity = await _context.Resources.FindAsync(resource.Id);
