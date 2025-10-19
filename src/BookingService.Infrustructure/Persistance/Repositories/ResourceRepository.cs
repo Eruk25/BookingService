@@ -35,8 +35,10 @@ public class ResourceRepository : IResourceRepository
         if(entity == null) return false;
         entity.Title = resource.Title;
         entity.Description = resource.Description;
-        entity.PricePerHour = resource.PricePerHour;
+        entity.Address = resource.Address;
+        entity.PricePerMonth = resource.PricePerMonth;
         entity.ImageUrl = resource.ImageUrl;
+        entity.SourceId = resource.SourceId;
         
         await _context.SaveChangesAsync();
         return true;
