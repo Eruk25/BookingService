@@ -36,6 +36,13 @@ public class ResourcesController: ControllerBase
         return CreatedAtRoute("GetByIdAsync", new  { id = creatId }, creatId);
     }
 
+    [HttpPost("import")]
+    public async Task<IActionResult> ImportDataAsync(IEnumerable<ResourceDto> resources)
+    {
+        await _resourceService.ImportDataAsync(resources);
+        return Ok();
+    }
+
     [HttpPut("{id}")]
     public async Task<ActionResult<bool>> UpdateAsync(int id, ResourceDto resource)
     {
