@@ -40,6 +40,13 @@ public class ResourceService : IResourceService
         return resourceEntity.Id;
     }
 
+    public async Task ImportDataAsync(IEnumerable<ResourceDto> resources)
+    {
+        if(resources is null)
+            throw new ArgumentNullException(nameof(resources));
+        await _resourceRepository.ImportDataAsync(_mapper.Map<IEnumerable<Domain.Entities.Resource>>(resources));
+    }
+
     public async Task<bool> UpdateAsync(ResourceDto resource)
     {
         if(resource is null)
