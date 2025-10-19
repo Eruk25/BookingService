@@ -4,6 +4,7 @@ using AngleSharp;
 using AngleSharp.Dom;
 using BookingService.Domain.Entities;
 using BookingService.Parser.Implementations;
+using BookingService.Parser.Services;
 
 namespace BookingService.Parser
 {
@@ -11,8 +12,8 @@ namespace BookingService.Parser
     {
         static async Task Main(string[] args)
         {
-           KufarParser parser = new KufarParser();
-           var resources = await parser.ParseAsync();
+            ParserExecutor executor = new ParserExecutor(new KufarParser());
+            await executor.RunAsync();
         }
     }    
 }       
