@@ -4,21 +4,40 @@ namespace BookingService.Domain.Entities;
 
 public class Booking
 {
-    public int Id { get; set; }
-    public int UserId { get; set; }
-    public User? User { get; set; }
-    public int ResourceId { get; set; }
-    public Resource? Resource { get; set; }
-    public DateTime StartTime { get; set; }
-    public DateTime EndTime { get; set; }
+    public int Id { get; private set; }
+    public int UserId { get; private set; }
+    public User? User { get; private set; }
+    public int ResourceId { get; private set; }
+    public Resource? Resource { get; private set; }
+    public DateTime StartTime { get; private set; }
+    public DateTime EndTime { get; private set; }
     public Booking(int userId, int resourceId, DateTime startTime, DateTime endTime)
     {
-        if(endTime <= startTime)
-            throw new ArgumentException("EndTime must be later than StartTime", nameof(endTime));
+        UpdateUser(userId);
+        UpdateResource(resourceId);
+        UpdateBookingTime(startTime, endTime);
+    }
+
+    public void UpdateUser(int userId)
+    {
+        if(userId <= 0)
+            throw new ArgumentException("UserId must be greater than 0", nameof(userId));
         UserId = userId;
+    }
+
+    public void UpdateResource(int resourceId)
+    {
+        if(resourceId <= 0)
+            throw new ArgumentException("ResourceId must be greater than 0", nameof(resourceId));
         ResourceId = resourceId;
+    }
+
+    public void UpdateBookingTime(DateTime startTime, DateTime endTime)
+    {
+        if(startTime <= endTime)
+            throw new ArgumentException("StartTime cannot be later than EndTime", nameof(startTime));
         StartTime = startTime;
         EndTime = endTime;
     }
-    protected Booking() {}
+    public Booking() {}
 }
