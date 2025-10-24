@@ -39,7 +39,7 @@ public class UserRepository : IUserRepository
 
     public async Task UpdateAsync(User user)
     {
-        var entity = await _context.Users.FindAsync(user.Id);
+        var entity = await _context.Users.FirstAsync(u => u.Id == user.Id);
         entity.UpdateUserName(user.UserName);
         entity.UpdateEmail(user.Email);
         entity.UpdatePassword(user.Password);
@@ -49,7 +49,7 @@ public class UserRepository : IUserRepository
 
     public async Task DeleteAsync(int id)
     {
-        var user = await _context.Users.FindAsync(id);
+        var user = await _context.Users.FirstAsync(u => u.Id == id);
         _context.Users.Remove(user);
         await _context.SaveChangesAsync();
     }
