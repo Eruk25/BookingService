@@ -15,7 +15,7 @@ public class Resource
     {
         if(string.IsNullOrWhiteSpace(title))
             throw new ArgumentException("Title cannot be null or empty", nameof(title));
-        if(string.IsNullOrWhiteSpace(description))
+        if(string.IsNullOrEmpty(description))
             throw new ArgumentException("Description cannot be null or empty", nameof(description));
         if(string.IsNullOrWhiteSpace(address))
             throw new ArgumentException("Address cannot be null or empty", nameof(address));
