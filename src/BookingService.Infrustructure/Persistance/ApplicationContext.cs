@@ -66,7 +66,7 @@ public class ApplicationContext : DbContext
         modelBuilder.Entity<Resource>()
             .Property(r => r.Address)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(500);
         modelBuilder.Entity<Resource>()
             .Property(r => r.PricePerMonth)
             .IsRequired()
