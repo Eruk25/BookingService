@@ -37,12 +37,10 @@ public class BookingRepository : IBookingRepository
 
     public async Task<bool> UpdateAsync(Booking booking)
     {
-        var entity = await _context.Bookings.FindAsync(booking.Id);
-        if(entity == null) return false;
-        entity.UserId = booking.UserId;
-        entity.ResourceId = booking.ResourceId;
-        entity.StartTime = booking.StartTime;
-        entity.EndTime = booking.EndTime;
+        var entity = await _context.Bookings.FirstAsync(e => e.Id == booking.Id);
+        entity.UpdateUser(booking.UserId);
+        entity.UpdateResource(booking.ResourceId);
+        entity.UpdateBookingTime(entity.StartTime, entity.EndTime);
         
         await _context.SaveChangesAsync();
         return true;
@@ -50,8 +48,7 @@ public class BookingRepository : IBookingRepository
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var booking = await _context.Bookings.FindAsync(id);
-        if(booking == null) return false;
+        var booking = await _context.Bookings.FirstAsync(b => b.Id == id);
         _context.Bookings.Remove(booking);
         await _context.SaveChangesAsync();
         return true;
