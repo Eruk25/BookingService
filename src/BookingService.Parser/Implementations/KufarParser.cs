@@ -79,15 +79,13 @@ public class KufarParser : IParser
         if (href == null) return null;
         var url = new Uri(href, UriKind.RelativeOrAbsolute);
         var sourceId = url.AbsolutePath.Split('/').LastOrDefault() ?? "-";
-        return new Resource
-        {
-            Title = titleEl ?? "-",
-            Description = descEl ?? "-",
-            Address = addressEl ?? "-",
-            PricePerMonth = price ?? 0,
-            ImageUrl = imgEl ?? "-",
-            SourceId = sourceId
-        };
+        return new Resource(
+            titleEl ?? "-",
+            descEl ?? "-",
+            addressEl ?? "-",
+            price ?? 0,
+            imgEl ?? "-",
+            sourceId);
     }
 
     public async Task<IEnumerable<Resource>> ParseAsync()
