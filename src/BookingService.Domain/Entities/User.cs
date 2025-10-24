@@ -10,25 +10,14 @@ public class User
     public string Password { get; private set; }
     public EnumRole Role { get; private set; }
     public DateTime RegistrationDate { get; private set; }
-    public User() {}
 
-    public static User Create(string userName, string email, string password)
+    public User(string userName, string email, string password)
     {
-        if(string.IsNullOrWhiteSpace(userName))
-            throw new ArgumentException("User name cannot be null or empty", nameof(userName));
-        if(string.IsNullOrWhiteSpace(email))
-            throw new ArgumentException("Email cannot be null or empty", nameof(email));
-        if(string.IsNullOrWhiteSpace(password))
-            throw new ArgumentException("Password cannot be null or empty", nameof(password));
-
-        return new User
-        {
-            UserName = userName,
-            Email = email,
-            Password = password,
-            Role = EnumRole.Client,
-            RegistrationDate = DateTime.Now,
-        };
+        UpdateUserName(userName);
+        UpdateEmail(email);
+        UpdatePassword(password);
+        Role = EnumRole.Client;
+        RegistrationDate = DateTime.UtcNow;
     }
 
     public void UpdateUserName(string userName)
@@ -51,4 +40,6 @@ public class User
             throw new ArgumentException("Password cannot be null or empty", nameof(password));
         Password = password;
     }
+
+    public User() {}
 }
