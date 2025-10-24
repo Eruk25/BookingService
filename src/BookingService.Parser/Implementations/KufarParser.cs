@@ -73,7 +73,7 @@ public class KufarParser : IParser
                 
         var titleEl = card.QuerySelector(".styles_parameters__7zKlL")?.TextContent.Trim(); 
         var addressEl = card.QuerySelector(".styles_address__l6Qe_")?.TextContent.Trim(); 
-        var descEl = card.QuerySelector(".styles_body__5BrnC")?.TextContent.Trim();
+        var descEl = card.QuerySelector(".styles_body__5BrnC")?.TextContent;
         var imgEl = card.QuerySelector(".styles_image__ZPJzx")?.GetAttribute("src")?.Trim();
         var href = card.GetAttribute("href")?.Trim();
         if (href == null) return null;
